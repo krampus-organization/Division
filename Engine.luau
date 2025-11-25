@@ -1,6 +1,6 @@
 --[=[
     @author Desktop2677
-	  @class Engine
+    @class Engine
 ]=]
 
 export type Engine = {
@@ -81,7 +81,7 @@ local Engine = {}; do
     function Engine:Disconnect(Connection: RBXScriptConnection)
         local Index = table.find(self.Connections, Connection)
 		
-		if Index then
+        if Index then
             do -- Remove Connection Memory
                 table.remove(self.Connections, Index)
             end
