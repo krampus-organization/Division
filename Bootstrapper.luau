@@ -15,11 +15,7 @@ local Bootstrapper = {}; do
 
     -- @method New
     function Bootstrapper:New()
-        local self = setmetatable({Packages = {}}, Bootstrapper)
-
-        do -- Self
-            self.Packages = {}
-        end
+        local Self = setmetatable({Packages = {}}, Bootstrapper)
 
         do -- Packages
             local Packages = {"Engine"}
@@ -32,12 +28,12 @@ local Bootstrapper = {}; do
                 end)
 
                 if Success and Downloaded then
-                    self.Packages[Package] = loadstring(Downloaded.Body)()
+                    Self.Packages[Package] = loadstring(Downloaded.Body)()
                 end
             end
         end
 
-        return (self :: any) :: Bootstrapper
+        return (Self :: any) :: Bootstrapper
     end
 
     -- @method GetPackage
